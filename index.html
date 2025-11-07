@@ -35,27 +35,30 @@
     <link rel="stylesheet" href="styles/style.css">
   </head>
   <body>
+    <div class="fondo-estrella">
+      <img src="fondos_/estrella.jpeg" alt="Fondo de estrellas">
+    </div>
     
-    <!-- Navbar fija -->
-    <nav class="navbar navbar-expand-lg navbar-dark nav-bg fixed-top shadow-lg">
-      <div class="container">
-        <a class="navbar-brand fw-bold" href="#inicio">
-  <span id="ferxxo-name">FERXXO 💚</span>
-</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link text-success" href="#inicio">Inicio</a></li>
-            <li class="nav-item"><a class="nav-link text-success" href="#bienvenida">Bienvenida</a></li>
-            <li class="nav-item"><a class="nav-link text-success" href="#historia">Historia</a></li>
-            <li class="nav-item"><a class="nav-link text-success" href="#contacto">Contacto</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    
+    <nav class="navbar navbar-expand-lg navbar-dark nav-bg shadow-lg">
+
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#inicio">
+      <span id="ferxxo-name">FERXXO 💚</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link text-success" href="#inicio">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link text-success" href="#bienvenida">Bienvenida</a></li>
+        <li class="nav-item"><a class="nav-link text-success" href="#historia">Historia</a></li>
+        <li class="nav-item"><a class="nav-link text-success" href="#contacto">Contacto</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
     
      <!-- INICIO -->
 <section id="inicio" class="bg-inicio">
@@ -105,27 +108,39 @@
       </div>
     </section>
 
-    <!-- BIENVENIDA -->
-    <section id="bienvenida" class="seccion bg-bienvenida">
-      <h2 class="highlight-yellow">🎥 Video de Bienvenida</h2>
-      <p class="lead">Disfruta de este video donde Feid te da la bienvenida a su página de fans.</p>
-      <!-- 👇 ESTE ES EL IFRAME CORRECTO PARA TU SHORT -->
+<div id="ferxxoCarousel" class="carousel slide carousel-fade w-75 mt-4">
+  <!-- Aquí está tu carrusel -->
+</div>
+
+<!-- ✨ Separador -->
+<div class="separador"></div>
+
+
+    
+    <!-- 🎥 BIENVENIDA -->
+<section id="bienvenida" class="seccion bg-bienvenida">
+  <h2 class="highlight-yellow">🎥 Video de Bienvenida</h2>
+  <p class="lead">Disfruta este video</p>
+
   <div class="video-wrap">
     <iframe
-      src="https://www.youtube.com/embed/Z0S2OtbPe9M?rel=0&modestbranding=1&playsinline=1"
+      src="feid video.mp4"
       title="Video de Feid"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen
-      loading="lazy"
-      referrerpolicy="strict-origin-when-cross-origin">
+      allowfullscreen>
     </iframe>
   </div>
 
-  <!-- Fallback por si el iframe no carga en tu navegador -->
-  <p class="texto-historia" style="margin-top:14px">
-    Si no ves el video, <a class="highlight-yellow" href="https://www.youtube.com/shorts/Z0S2OtbPe9M" target="_blank" rel="noopener">ábrelo aquí</a>.
-  </p>
-</section>
+  </section>
+
+   
+
+<!-- ✨ Separador -->
+<div class="separador"></div>
+
+
+  
+
 
     <!-- HISTORIA -->
     <section id="historia" class="seccion bg-historia">
@@ -164,6 +179,9 @@
     </p>
   </div>
 </section>
+ <div class="separador"></div>
+
+
 
     <!-- CONTACTO -->
     <section id="contacto" class="seccion bg-contacto">
@@ -185,7 +203,7 @@
 
     <!-- FOOTER -->
     <footer class="text-center footer-bg">
-      <p>💚 Página creada por ART 💚</p>
+      <p>💚 Página creada por ART ✨</p>
 
       <div class="social-links mt-3">
         <a href="https://open.spotify.com/artist/2LRoIwlKmHjgvigdNGBHNo" target="_blank" class="me-3 text-success">
@@ -204,6 +222,3 @@
     <script src="scripts/main.js"></script>
   </body>
 </html>
-
-
-

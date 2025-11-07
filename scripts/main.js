@@ -42,4 +42,13 @@ function changeFerxxo() {
 // Cambia cada 3 segundos
 setInterval(changeFerxxo, 3000);
 
+// 💫 Hace que la barra cambie cuando bajas
+window.addEventListener("scroll", () => {
+  const nav = document.querySelector(".nav-bg");
+  if (window.scrollY > 50) {
+    nav.classList.add("scrolled");
+  } else {
+    nav.classList.remove("scrolled");
+  }
+});
 

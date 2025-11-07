@@ -11,13 +11,29 @@ html, body {
   text-align: center;
   scroll-behavior: smooth;
 }
-
-/* Navbar fija */
-.nav-bg {
-  border-bottom: 2px solid var(--verde);
-  background: rgba(0, 0, 0, 0.85) !important;
-  backdrop-filter: blur(10px);
+/* imagen de fondo*/
+body {
+  position: relative;
 }
+
+body > *:not(.fondo-estrella) {
+  position: relative;
+  z-index: 1;
+}
+
+.nav-bg {
+  position: relative !important; /* 👈 forzamos que ya NO sea fija */
+  top: auto !important;
+  left: auto !important;
+  width: 100%;
+  border-bottom: 2px solid var(--verde);
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  z-index: 10;
+}
+
+
+
 .navbar-nav .nav-link {
   font-weight: bold;
   transition: color 0.3s ease;
@@ -45,40 +61,32 @@ html, body {
   color: #fff;
 }
 
-/* Secciones */
 .seccion {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 100px 20px 60px;
+  padding: 120px 20px 60px; /* 👈 más espacio arriba para que no tape el menú */
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   position: relative;
 }
+
 .seccion::before {
   content: "";
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.6);
+  pointer-events: none;
 }
 .seccion > * {
   position: relative;
   z-index: 2;
 }
 
-/* Fondos */
-.bg-inicio {
-  background-image: url("../fondos_/estrella.jpeg");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  filter: brightness(0.9);
-  background-repeat: no-repeat;
-  color: #fff;
-}
+
 
 .bg-bienvenida {
   background-image: url("../fondos_/feid2.jpeg");
@@ -448,6 +456,19 @@ iframe {
   z-index: -1;
 }
 
+.fondo-estrella {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.fondo-estrella img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .titulo-historia {
   color: #00ff88;
   font-family: "Poppins", sans-serif;
@@ -473,7 +494,7 @@ iframe {
 .texto-final {
   font-family: "Poppins", sans-serif;
   color: #00ff99;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-weight: 700;
   margin-top: 40px;
   text-shadow: 0 0 10px #00ff88;
@@ -491,6 +512,102 @@ iframe {
   display: inline-block;
 }
 
+/* 🎥 VIDEO DE BIENVENIDA (ajustado y sin texto adicional) */
+.video-wrap {
+  width: 350px;         /* 🔹 Ajusta el ancho (más grande = 400px, más pequeño = 300px) */
+  height: 620px;        /* 🔹 Ajusta la altura (para que no se vea tan largo) */
+  margin: 40px auto;
+  border: 4px solid #ffee00;
+  box-shadow: 0 0 25px #ffee00, 0 0 45px #ffaa00;
+  border-radius: 15px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
+.video-wrap:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 35px #ffee00, 0 0 70px #ffaa00;
+}
+
+.video-wrap iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 15px;
+}
+
+/* 🌟 Para que se vea bien también en celulares */
+@media (max-width: 600px) {
+  .video-wrap {
+    width: 90%;
+    height: auto;
+    aspect-ratio: 9 / 16; /* mantiene la forma vertical */
+  }
+}
+/* 💚 VIDEO DE BIENVENIDA AJUSTADO */
+.video-wrap {
+  width: 360px;             /* 🔹 Ancho del video */
+  height: 640px;            /* 🔹 Alto del video (ajústalo si lo ves muy largo) */
+  margin: 50px auto;        /* Centrado */
+  border: 4px solid #ffee00;
+  box-shadow: 0 0 25px #ffee00, 0 0 50px #ffaa00;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 0, 0.08);
+}
+
+.video-wrap iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 20px;
+}
+
+/* 💫 Ajuste automático en pantallas pequeñas */
+@media (max-width: 600px) {
+  .video-wrap {
+    width: 90%;
+    height: auto;
+    aspect-ratio: 9 / 16;
+  }
+}
+
+/* 🌫️ Separador transparente sin líneas */
+.separador {
+  width: 100%;
+  height: 100px; /* espacio entre secciones */
+  background: transparent; /* completamente invisible */
+  margin: 0;
+  border: none;
+}
+
+/* 💫 Efecto suave cuando bajas */
+.nav-bg {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  border-bottom: 2px solid var(--verde);
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  transition: all 0.4s ease;
+}
+
+.nav-bg.scrolled {
+  background: rgba(0, 0, 0, 0.95);
+  box-shadow: 0 4px 10px rgba(0, 255, 100, 0.3);
+}
+
+.lead {
+  color: #19191a; /* 💚 Verde Ferxxo */
+  text-shadow: 0 0 10px #20ac27; /* ✨ Brillo suave */
+}
 
 
